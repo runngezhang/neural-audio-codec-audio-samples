@@ -1,0 +1,244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Neural Beam Filter</title>
+</head>
+
+<body>
+<h2 id="NBF">A Neural Beam Filter for Real-time Multi-channel Speech Enhancement</h2>
+<p>Wenzhe Liu, Andong Li, Chengshi Zheng, Xiaodong Li</p>
+<!--<h3>Overview of the proposed Neural Beam Filter system</h3>
+<p><img src="./image/architecture.png" width="800" height="250" align="middle" /></p>
+-->
+<p>&nbsp;</p>
+<h3>Demo</h3>
+<!-- <p>Here we will further analyze the problem that E2E-GSC has higher DNS-MOS scores but lower objective indicators (PESQ, ESTOI) than masking-based MVDR (MB-MVDR).</p> -->
+<!-- <p>Firstly, we demonstrate the speech processed by our method and baseline methods including MB-MVDR.  -->
+<h4>SIR=-5dB</h4>
+<p>
+	<img src="./image/-5/mix_1.png" width="303" height="231" /> 
+	<img src="./image/-5/fasnet.jpg" width="303" height="231" /> 
+	<img src="./image/-5/mimounet.png" width="303" height="231" /> 
+	<img src="./image/-5/convtasnet.png" width="303" height="231" /> 
+	<img src="./image/-5/ours.png" width="303" height="231" /></p>
+<table width="1150" border="1">
+  <tr>
+    <td width="250">
+		Unprocessed
+		<audio controls="" src="audio/-5/mix_1.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+	<td width="250">
+		FaSNet
+		<audio controls="" src="audio/-5/fasnet.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+	<td width="250">
+		MIMO-UNet
+		<audio controls="" src="audio/-5/mimounet.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+	<td width="250">
+		MC-Conv-TasNet
+		<audio controls="" src="audio/-5/convtasnet.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+	<td width="250">
+		Proposed
+		<audio controls="" src="audio/-5/ours.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+<h4>SIR=0dB</h4>
+<p><img src="./image/0/mix_1.png" width="303" height="231" /> 
+<img src="./image/0/fasnet.png" width="303" height="231" /> 
+<img src="./image/0/mimounet.png" width="303" height="231" /> 
+<img src="./image/0/convtasnet.png" width="303" height="231" /> 
+<img src="./image/0/ours.png" width="303" height="231" /></p>
+<table width="1150" border="1">
+  <tr>
+    <td width="250">
+		Unprocessed
+		<audio controls="" src="audio/0/mix_1.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+	<td width="250">
+		FaSNet
+		<audio controls="" src="audio/0/fasnet.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+	<td width="250">
+		MIMO-UNet
+		<audio controls="" src="audio/0/mimounet.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+	<td width="250">
+		MC-Conv-TasNet
+		<audio controls="" src="audio/0/convtasnet.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+	<td width="250">
+		Proposed
+		<audio controls="" src="audio/0/ours.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<h4>SIR=5dB</h4>
+<p><img src="./image/5/mix_1.png" width="303" height="231" /> 
+<img src="./image/5/fasnet.png" width="303" height="231" /> 
+<img src="./image/5/mimounet.png" width="303" height="231" /> 
+<img src="./image/5/convtasnet.png" width="303" height="231" /> 
+<img src="./image/5/ours.png" width="303" height="231" /></p>
+<table width="1150" border="1">
+  <tr>
+    <td width="250">
+		Unprocessed
+		<audio controls="" src="audio/5/mix_1.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+	<td width="250">
+		FaSNet
+		<audio controls="" src="audio/5/fasnet.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+	<td width="250">
+		MIMO-UNet
+		<audio controls="" src="audio/5/mimounet.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+	<td width="250">
+		MC-Conv-TasNet
+		<audio controls="" src="audio/5/convtasnet.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+	<td width="250">
+		Proposed
+		<audio controls="" src="audio/5/ours.wav">
+			Your browser does not support the
+			<code>audio</code>
+			element.
+		</audio>
+	</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<h4>Experimental results when the microphone position is perturbed</h4>
+<p>Experimental results of baselines and the proposed system when the array element spacing of 3.5, 4.0, and 4.5 cm</p>
+<p><img src="./fig/pesq/-5_pesq.jpg" width="500" height="331" /> 
+<img src="./fig/pesq/-2_pesq.jpg" width="500" height="331" /> 
+<img src="./fig/pesq/0_pesq.jpg" width="500" height="331" /> </p>
+<table width="1510" border="1">
+  <tbody><tr>
+    <td width="503" align="center">
+		-5dB
+	</td>
+	<td width="503" align="center">
+		-2dB
+	</td>
+	<td width="503" align="center">
+		0dB
+	</td>
+  </tr>
+</tbody></table>
+<p><img src="./fig/pesq/2_pesq.jpg" width="500" height="331" /> 
+<img src="./fig/pesq/5_pesq.jpg" width="500" height="331"/>
+<img src="./fig/pesq/avg_pesq.jpg" width="500" height="331" /> </p>
+<table width="1510" border="1">
+  <tbody><tr>
+    <td width="503" align="center">
+		-5dB
+	</td>
+	<td width="503" align="center">
+		-2dB
+	</td>
+	<td width="503" align="center">
+		0dB
+	</td>
+  </tr>
+</tbody></table>
+	
+<p><img src="./fig/estoi/-5_estoi.jpg" width="500" height="331" /> 
+<img src="./fig/estoi/-2_estoi.jpg" width="500" height="331"/> 
+<img src="./fig/estoi/0_estoi.jpg" width="500" height="331" /> </p>
+	<table width="1510" border="1">
+  <tbody><tr>
+    <td width="503" align="center">
+		-5dB
+	</td>
+	<td width="503" align="center">
+		-2dB
+	</td>
+	<td width="503" align="center">
+		0dB
+	</td>
+  </tr>
+</tbody></table>
+<p><img src="./fig/estoi/2_estoi.jpg" width="500" height="331" /> 
+<img src="./fig/estoi/5_estoi.jpg" width="500" height="331" />
+<img src="./fig/estoi/avg_estoi.jpg" width="500" height="331" /> </p>
+<table width="1510" border="1">
+  <tbody><tr>
+    <td width="503" align="center">
+		-5dB
+	</td>
+	<td width="503" align="center">
+		-2dB
+	</td>
+	<td width="503" align="center">
+		0dB
+	</td>
+  </tr>
+</tbody></table>
+	
+</body>
+</html>
